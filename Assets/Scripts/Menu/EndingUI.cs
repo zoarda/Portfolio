@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class EndingUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Replay()
     {
-        
+        gameObject.SetActive(false);
+
+        StoryManager.Instance.ReplayStory();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BackToMainMenu()
     {
-        
+        gameObject.SetActive(false);
+
+        UIManager.Instance.ShowMainMenu();
     }
 }

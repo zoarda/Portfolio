@@ -65,10 +65,13 @@ public class DialogueUI : MonoBehaviour
             return;
         }
 
-        if (currentNode.nextId > 0)
+        if (currentNode.nextId < 0)
         {
-            StoryManager.Instance.GoTo(currentNode.nextId);
+            Debug.Log("Story End");
+            UIManager.Instance.ShowEnding();
+            return;
         }
+        StoryManager.Instance.GoTo(currentNode.nextId);
     }
     private void OnTypingComplete()
     {

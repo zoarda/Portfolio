@@ -1,0 +1,47 @@
+{
+  "list":
+  [
+    {
+      "id":1,
+      "type":"narration",
+      "content":"你走進學校",
+      "nextId":2
+    },
+
+    {
+      "id":2,
+      "type":"dialogue",
+      "speaker":"店員",
+      "content":"歡迎光臨",
+      "nextId":3
+    },
+
+    {
+      "id":3,
+      "type":"choice",
+      "options":
+      [
+        {
+          "text":"點咖啡",
+          "nextId":4
+        },
+        {
+          "text":"離開",
+          "nextId":5
+        }
+      ]
+    },
+
+    {
+      "id":4,
+      "type":"narration",
+      "content":"你點了一杯咖啡"
+    },
+
+    {
+      "id":5,
+      "type":"narration",
+      "content":"你離開了店"
+    }
+  ]
+}

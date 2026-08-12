@@ -7,7 +7,7 @@ public class StoryManager : MonoBehaviour
 
     private Dictionary<int, StoryNode> storyDict;
     private int currentId;
-
+    private string currentStoryFile;
     private void Awake()
     {
         Instance = this;
@@ -15,14 +15,17 @@ public class StoryManager : MonoBehaviour
 
     private void Start()
     {
-        storyDict = StoryLoader.LoadStory("story.json");
 
-        StartStory(1);
     }
 
-    public void StartStory(int startId)
+    public void StartStory(string fileName)
     {
-        currentId = startId;
+        currentStoryFile = fileName;
+
+        storyDict = StoryLoader.LoadStory(fileName);
+
+        currentId = 1;
+
         ShowNode();
     }
 
@@ -56,10 +59,26 @@ public class StoryManager : MonoBehaviour
 
     public void GoTo(int nextId)
     {
+        if (nextId <= 0)
+        {
+            UIManager.Instance.ShowEnding();
+            return;
+        }
+
         currentId = nextId;
 
-        SaveManager.Save(currentId); // 如果已經有 SaveManager
+        SaveManager.Save(currentId);
 
         ShowNode();
+    }
+    public void ReplayStory()
+    {
+        if (string.IsNullOrEmpty(currentStoryFile))
+        {
+            Debug.LogError("No story has been played.");
+            return;
+        }
+
+        StartStory(currentStoryFile);
     }
 }

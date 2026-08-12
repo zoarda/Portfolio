@@ -1,16 +1,18 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class StoryInfo : MonoBehaviour
+[Serializable]
+public class StoryInfo
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string title;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string fileName;
+
+    public Sprite thumbnail;
+}
+[Serializable]
+public class StoryList
+{
+    public List<StoryInfo> stories;
 }

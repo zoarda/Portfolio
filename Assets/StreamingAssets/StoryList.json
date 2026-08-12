@@ -1,0 +1,12 @@
+{
+  "stories": [
+    {
+      "title": "Coffee Story",
+      "fileName": "coffee.json"
+    },
+    {
+      "title": "School Story",
+      "fileName": "school.json"
+    }
+  ]
+}
